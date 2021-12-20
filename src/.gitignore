@@ -6,3 +6,6 @@
 *.obj
 *.elf
 
+*.bin
+*dump.s
+

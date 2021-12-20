@@ -1,0 +1,60 @@
+--- hw/gpio/bcm2835_gpio.c	2020-10-27 12:29:10.140056483 +0100
++++ /tmp/bcm2835_gpio.c	2020-10-27 12:26:10.618863244 +0100
+@@ -120,7 +120,28 @@
+     for (i = 0; i < count; i++) {
+         if ((changes & cur) && (gpfsel_is_out(s, start + i))) {
+             qemu_set_irq(s->out[start + i], 1);
+-        }
++            if (start == 0){
++				switch (i) {
++					case 4:
++						printf("erste grüne LED: an\n");
++						break;
++					case 5:
++						printf("erste gelbe LED: an\n");
++						break;
++					case 6:
++						printf("einzige rote LED: an\n");
++						break;
++					case 7:
++						printf("zweite gelbe LED: an\n");
++						break;
++					case 8:
++						printf("zweite grüne LED: an\n");
++						break;
++					default:
++						break;
++				}
++			}
++		}
+         cur <<= 1;
+     }
+ 
+@@ -137,6 +158,27 @@
+     for (i = 0; i < count; i++) {
+         if ((changes & cur) && (gpfsel_is_out(s, start + i))) {
+             qemu_set_irq(s->out[start + i], 0);
++            if (start == 0){
++				switch (i) {
++					case 4:
++						printf("erste grüne LED: aus\n");
++						break;
++					case 5:
++						printf("erste gelbe LED: aus\n");
++						break;
++					case 6:
++						printf("einzige rote LED: aus\n");
++						break;
++					case 7:
++						printf("zweite gelbe LED: aus\n");
++						break;
++					case 8:
++						printf("zweite grüne LED: aus\n");
++						break;
++					default:
++						break;
++				}
++			}
+         }
+         cur <<= 1;
+     }
