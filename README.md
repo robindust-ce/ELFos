@@ -1,5 +1,5 @@
 # ELFos
-ELFos - A small Operating System developed for the Broadcom BCM2836 SoC (RaspberryPi 2 B)
+ELFos - A small Operating System developed for the Broadcom BCM2836 SoC (RaspberryPi 2 B) as part of a university course.
 
 
 
